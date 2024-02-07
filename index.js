@@ -8,7 +8,12 @@ const port = process.env.PORT || 3002;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://ralogisticks.vercel.app", // Установите корректный домен вашего фронтенда
+    credentials: true,
+  })
+);
 
 const transporter = nodemailer.createTransport({
   host: "smtp-mail.outlook.com",
