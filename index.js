@@ -47,8 +47,6 @@ app.post("/submit-form", (req, res) => {
   });
 });
 
-console.log("Sending email to:", mailOptions.to);
-
 app.listen(port, () => {
   console.log(`Server is running ${port}`);
 });
