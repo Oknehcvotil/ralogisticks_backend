@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "http://ralogisticks.vercel.app", // Установите корректный домен вашего фронтенда
+    origin: "https://ralogisticks.vercel.app",
     credentials: true,
   })
 );
