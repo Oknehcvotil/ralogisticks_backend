@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "https://ralogisticks.vercel.app",
+    origin: "https://ralogisticks.vercel.app",//изменить потом на другой адрес
     credentials: true,
   })
 );
@@ -18,7 +18,7 @@ app.use(
 const transporter = nodemailer.createTransport({
   host: "smtp-mail.outlook.com",
   port: 587,
-  secure: false, // true для 465 порта, false для других портов
+  secure: false,
   auth: {
     user: process.env.EMAIL,
     pass: process.env.EMAIL_PASSWORD,
@@ -30,7 +30,7 @@ app.post("/submit-form", (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL,
-    to: "oknehcvotil.k@gmail.com",
+    to: "management@ralogistics.com.ua",
     subject: "new form from " + name,
     text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`,
   };
@@ -38,10 +38,8 @@ app.post("/submit-form", (req, res) => {
   // Отправка письма
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error("sending email error:", error);
       res.status(500).send("server error");
     } else {
-      console.log("Succesful email sent:", info.response);
       res.status(200).send("Succesful email sent: " + info.response);
     }
   });
