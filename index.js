@@ -30,7 +30,7 @@ app.post("/submit-form", (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL,
-    to: "management@ralogistics.com.ua",
+    to: "sasha@ralogistics.com.ua",
     subject: "new form from " + name,
     text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`,
   };
