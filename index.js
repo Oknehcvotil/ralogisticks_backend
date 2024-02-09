@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "https://ralogistics.com.ua", 
+    origin: "https://ralogistics.com.ua",
     credentials: true,
   })
 );
@@ -30,8 +30,7 @@ app.post("/submit-form", (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL,
-    to: "litovchenko.br@gmail.com",
-    // to: "sasha@ralogistics.com.ua",
+    to: "sasha@ralogistics.com.ua",
     subject: "new form from " + name,
     text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`,
   };
